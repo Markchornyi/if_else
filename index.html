@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>Практика з if else</title>
+<style type="text/css"> 
+div {
+  font-size: 50px; 
+  color: green; 
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+}
+.cqe {
+  width: 50px; 
+  height: 50px;
+  font-size: 36px; 
+  text-align: center;
+}
+.btn { 
+  width: 250px;
+  height: 50px;
+  font-size: 36px;
+  color: purple;
+}
+.get {
+  font-size: 36px;
+  color: blue;
+  background-color: lightgoldenrodyellow;
+}
+</style>
+</head>
+<body>
+<div>
+  <p>Розрахунок периметру та площі трикутника:</p>
+  <form name="triangle" action="javascript:void(0)">
+    <label for="a">a:</label>
+    <input class="cqe" type="text" id="a" name="a" size="4"><br><br>
+    <label for="b">b:</label>
+    <input class="cqe" type="text" id="b" name="b" size="4"><br><br>
+    <label for="c">c:</label>
+    <input class="cqe" type="text" id="c" name="c" size="4"><br><br>
+    <button class="btn" onclick="calculate()">Розрахувати</button>
+    <input class="btn" type="reset" name="reset" value="Скинути">
+    <p id="result">Рішення: Введіть сторони трикутника та натисніть на кнопку "Розрахувати"</p>
+  </form>
+</div>
+<script>
+function calculate() {
+  var a = parseInt(document.getElementById("a").value);
+  var b = parseInt(document.getElementById("b").value);
+  var c = parseInt(document.getElementById("c").value);
+  if (a + b > c && b + c > a && a + c > b) {
+    var p = (a + b + c) / 2;
+    var area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+    document.getElementById("result").innerHTML = "Площа трикутника дорівнює: " + area.toFixed(2);
+  } else {
+    document.getElementById("result").innerHTML = "Такого трикутника не буває";
+  }
+}
+</script>
+</body>
+</html>
